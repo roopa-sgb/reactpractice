@@ -7,6 +7,7 @@ function App() {
   const cars = ["ford", "nexon", "tesla"];
   const [name, setName] = useState("");
   const [text, setText] = useState("");
+  const [car, setCar] = useState("Volvo");
   function handleSubmit(e) {
     e.preventDefault();
     alert(name);
@@ -17,6 +18,10 @@ function App() {
 
   function handleTextChange(e) {
     setText(e.target.value);
+  }
+
+  function handleCarChange(e) {
+    setCar(e.target.value);
   }
 
   return (
@@ -41,7 +46,12 @@ function App() {
           <textarea value={text} onChange={handleTextChange} />
         </label>
       </form>
-      <p>{text}</p>
+      <p>current value of text : {text}</p>
+      <select value={car} onChange={handleCarChange}>
+        <option value="Volvo">Volvo</option>
+        <option value="Ford">Ford</option>
+        <option value="Fieat">Fieat</option>
+      </select>
     </>
   );
 }
